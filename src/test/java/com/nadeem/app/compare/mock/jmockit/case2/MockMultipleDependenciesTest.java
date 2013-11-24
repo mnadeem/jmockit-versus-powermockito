@@ -31,7 +31,7 @@ public class MockMultipleDependenciesTest {
         }};
         assertThat(mockDependencies.go()).isEqualTo("I am mocked One! I am mocked Two!");
     }
-	
+
 	@Test
     public void shouldMockDependencyStateBased(@Mocked final DependencyOne one, @Mocked final DependencyTwo two) throws IOException {
 		new MockedDependencyOne();
@@ -42,7 +42,7 @@ public class MockMultipleDependenciesTest {
 		assertThat(mockDependencies.go()).isEqualTo("I am mocked One! I am mocked Two!");
 		
 	}
-	
+
 	private static class MockedDependencyOne extends MockUp<DependencyOne> {
 		@Mock
 		public void $init()
