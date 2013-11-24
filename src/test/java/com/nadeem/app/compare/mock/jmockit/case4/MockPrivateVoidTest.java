@@ -16,23 +16,23 @@ public class MockPrivateVoidTest {
 
 	@Test
     public void mockPrivateBehaviorBased() throws IOException {
-        final MockPrivateVoid service = new MockPrivateVoid();
-        new Expectations(service) {{
-            invoke(service, "crashHorribly");
+        final MockPrivateVoid mockPrivate = new MockPrivateVoid();
+        new Expectations(mockPrivate) {{
+            invoke(mockPrivate, "crashHorribly");
         }};
-        assertEquals("I am original!", service.go());
+        assertEquals("I am original!", mockPrivate.go());
     }
 
 	@Test
     public void mockPrivateStateBased() throws IOException {
 		new MockedMockPrivateVoid();
-        final MockPrivateVoid service = new MockPrivateVoid();
+        final MockPrivateVoid mockPrivate = new MockPrivateVoid();
        
-        assertEquals("I am original!", service.go());
+        assertEquals("I am original!", mockPrivate.go());
     }
 
 	private static class MockedMockPrivateVoid extends MockUp<MockPrivateVoid> {
-		
+
 		@Mock
 		void crashHorribly() {
 			
