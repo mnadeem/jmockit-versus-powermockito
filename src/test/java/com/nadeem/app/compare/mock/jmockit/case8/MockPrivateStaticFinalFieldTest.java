@@ -12,12 +12,28 @@ import com.nadeem.app.compare.mock.case8.MockPrivateStaticFinalField;
 public class MockPrivateStaticFinalFieldTest {
 
 	@Test
-	public void mockPrivateStaticeBehaviorBased() {
+	public void mockPrivateStaticeFinalBehaviorBased() {
 
 		final MockPrivateStaticFinalField mockStatic = new MockPrivateStaticFinalField();
 
 		new Expectations() {
 			@Mocked("message") Dependency dep;			
+
+			{
+				setField(MockPrivateStaticFinalField.class, "DEPENDENCY", dep);
+				dep.message();
+				result = "Private Static Final Jmockit Mocked!";
+			}
+		};
+		assertEquals("Private Static Final Jmockit Mocked!", mockStatic.go());
+	}
+	
+	@Test
+	public void mockPrivateStaticeFinalBehaviorBased2(final @Mocked("message") Dependency dep) {
+
+		final MockPrivateStaticFinalField mockStatic = new MockPrivateStaticFinalField();
+
+		new Expectations() {
 
 			{
 				setField(MockPrivateStaticFinalField.class, "DEPENDENCY", dep);
