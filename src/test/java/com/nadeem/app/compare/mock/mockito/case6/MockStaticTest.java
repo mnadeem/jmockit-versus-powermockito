@@ -9,19 +9,20 @@ import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
+import com.nadeem.app.compare.mock.case6.DependencyContainingStatic;
 import com.nadeem.app.compare.mock.case6.MockStatic;
 
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest(MockStatic.class)
+@PrepareForTest(DependencyContainingStatic.class)
 public class MockStaticTest {
 	
 	@Test
 	public void shouldMockStatic() throws Exception {
 
-		mockStatic(MockStatic.class);
+		mockStatic(DependencyContainingStatic.class);
 		MockStatic mockStatic = new MockStatic();
-		when(MockStatic.world()).thenReturn("Static PowerMockito!");
+		when(DependencyContainingStatic.world()).thenReturn("Static PowerMockito!");
 
 		assertThat(mockStatic.go()).isEqualTo("Hello Static PowerMockito!");
 	}
