@@ -2,7 +2,7 @@ package com.nadeem.app.compare.mock.case4;
 
 import java.io.IOException;
 
-public class MockPrivate {
+public class MockPrivateVoid {
 	
 	public String go() throws IOException {
 		crashHorribly();
