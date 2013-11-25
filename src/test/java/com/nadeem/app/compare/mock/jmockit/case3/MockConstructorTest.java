@@ -7,7 +7,6 @@ import java.io.IOException;
 import mockit.Expectations;
 import mockit.Mock;
 import mockit.MockUp;
-import mockit.Mocked;
 
 import org.junit.Test;
 
@@ -19,7 +18,7 @@ public class MockConstructorTest {
 	private static final String EXPECTED_RESULT = "I am mocked";
 
 	@Test
-	public void constructorIsMockedSuccessfullyBehaviorBased(@Mocked(stubOutClassInitialization = false) final Dependency dep) throws IOException {
+	public void constructorIsMockedSuccessfullyBehaviorBased(final Dependency dep) throws IOException {
 		MockConstructor mockConstructor = new MockConstructor();
 		new Expectations() {{
 			new Dependency();
