@@ -1,7 +1,7 @@
 package com.nadeem.app.compare.mock.jmockit.case9;
 
 import static junit.framework.Assert.assertEquals;
-import mockit.internal.util.ConstructorReflection;
+import mockit.Deencapsulation;
 
 import org.junit.Test;
 
@@ -11,7 +11,8 @@ public class InstantiatePrivateConstructorTest {
 
 	@Test
 	public void test() {
-		InstantiatePrivateConstructor instance = ConstructorReflection.newInstance(InstantiatePrivateConstructor.class);
+		
+		InstantiatePrivateConstructor instance = Deencapsulation.newInstance(InstantiatePrivateConstructor.class);
 		assertEquals("It seems i am instantiated!", instance.go());
 	}
 
